@@ -32,7 +32,7 @@ freely, subject to the following restrictions:
 #include "upng.h"
 
 #define MAKE_BYTE(b) ((b) & 0xFF)
-#define MAKE_DWORD(a,b,c,d) ((MAKE_BYTE(a) << 24) | (MAKE_BYTE(b) << 16) | (MAKE_BYTE(c) << 8) | MAKE_BYTE(d))
+#define MAKE_DWORD(a,b,c,d) (((long)MAKE_BYTE(a) << 24) | ((long)MAKE_BYTE(b) << 16) | ((long)MAKE_BYTE(c) << 8) | (long)MAKE_BYTE(d))
 #define MAKE_DWORD_PTR(p) MAKE_DWORD((p)[0], (p)[1], (p)[2], (p)[3])
 
 #define CHUNK_IHDR MAKE_DWORD('I','H','D','R')
