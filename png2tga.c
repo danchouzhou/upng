@@ -17,11 +17,12 @@ int main(int argc, char** argv) {
 	}
 
 	upng = upng_new_from_file(argv[1]);
-	if (upng_get_error(upng) == UPNG_EOK) {
+	if (upng_get_error(upng) != UPNG_EOK) {
 		printf("error: %u %u\n", upng_get_error(upng), upng_get_error_line(upng));
 		return 0;
 	}
 
+	upng_decode(upng);
 	width = upng_get_width(upng);
 	height = upng_get_height(upng);
 	depth = upng_get_bpp(upng) / 8;
